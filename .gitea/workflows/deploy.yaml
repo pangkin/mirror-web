@@ -16,7 +16,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
+            echo "🔃 Directory change."
             cd ${{ secrets.WORK_DIR }}
 
+            echo "🏃 Git pull start."
             git pull origin main
-            echo "Task finished"
+            echo "👍 Task finished."
