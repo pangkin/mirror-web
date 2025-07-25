@@ -12,6 +12,16 @@
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://http.krfoss.org/.web/http.css" rel="stylesheet" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    .sync-status-text {
+      font-size: 0.75rem;
+      line-height: 1rem;
+      color: #6B7281;
+      margin-top: 0.25rem;
+      text-align: center;
+      height: 1rem;
+    }
+  </style>
 </head>
 
 <body class="bg-white">
@@ -104,12 +114,24 @@
                 <h3 class="text-xl font-bold text-gray-900">Debian</h3>
                 <p class="text-gray-500">A stable and reliable open-source operating system.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
-                  <a class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:hover:bg-blue-600 transition-colors"
-                    href="/debian/">Debian</a>
-                  <a class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:hover:bg-blue-600 transition-colors"
-                    href="/debian-cd/">Debian-CD</a>
-                  <a class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:hover:bg-blue-600 transition-colors"
-                    href="/debian-security/">Debian-Security</a>
+                  <div>
+                    <a data-mirror-name="debian"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      href="/debian/">Debian</a>
+                    <div class="sync-status-text"></div>
+                  </div>
+                  <div>
+                    <a data-mirror-name="debian-cd"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      href="/debian-cd/">Debian-CD</a>
+                    <div class="sync-status-text"></div>
+                  </div>
+                  <div>
+                    <a data-mirror-name="debian-security"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      href="/debian-security/">Debian-Security</a>
+                    <div class="sync-status-text"></div>
+                  </div>
                 </div>
               </div>
               <div class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center">
@@ -117,8 +139,12 @@
                 <h3 class="text-xl font-bold text-gray-900">OPNsense</h3>
                 <p class="text-gray-500">An open-source, easy-to-use firewall and routing platform.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
-                  <a class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:hover:bg-blue-600 transition-colors"
-                    href="/opnsense/">OPNsense</a>
+                  <div>
+                    <a data-mirror-name="opnsense"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      href="/opnsense/">OPNsense</a>
+                    <div class="sync-status-text"></div>
+                  </div>
                 </div>
               </div>
               <div class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center">
@@ -126,8 +152,12 @@
                 <h3 class="text-xl font-bold text-gray-900">Proxmox</h3>
                 <p class="text-gray-500">An open-source server virtualization management platform.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
-                  <a class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:hover:bg-blue-600 transition-colors"
-                    href="/proxmox/">Proxmox</a>
+                  <div>
+                    <a data-mirror-name="proxmox"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      href="/proxmox/">Proxmox</a>
+                    <div class="sync-status-text"></div>
+                  </div>
                 </div>
               </div>
               <div class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center">
@@ -135,10 +165,18 @@
                 <h3 class="text-xl font-bold text-gray-900">Rocky Linux</h3>
                 <p class="text-gray-500">A community-supported, production-grade enterprise OS.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
-                  <a class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:hover:bg-blue-600 transition-colors"
-                    href="/rocky/">Rocky</a>
-                  <a class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:hover:bg-blue-600 transition-colors"
-                    href="/rocky-sigs/">Rocky-SIGs</a>
+                  <div>
+                    <a data-mirror-name="rocky"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      href="/rocky/">Rocky</a>
+                    <div class="sync-status-text"></div>
+                  </div>
+                  <div>
+                    <a data-mirror-name="rocky-sigs"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      href="/rocky-sigs/">Rocky-SIGs</a>
+                    <div class="sync-status-text"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -207,6 +245,116 @@
       </footer>
     </div>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mirrorLinks = document.querySelectorAll('a[data-mirror-name]');
+
+      const fetchAllStatuses = () => {
+        return fetch(`https://mirror.pangkin.com/asset/status.json`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Failed to load status file.');
+            }
+            return response.json();
+          })
+          .catch(error => {
+            console.error("Failed to fetch status.json:", error);
+            return {};
+          });
+      };
+
+      const getMirrorStatusInfo = (mirrorName, allStatuses) => {
+        const mirrorInfo = allStatuses[mirrorName];
+        if (!mirrorInfo) {
+          return { state: 'gray', text: 'Status Unknown', lastSync: null };
+        }
+
+        const isSync = mirrorInfo.isSync
+        let syncTime = new Date(mirrorInfo.lastSync);
+        const now = new Date();
+        const lagHours = (now - syncTime) / (1000 * 60 * 60);
+
+        let status
+
+        if (isSync) {
+          state = 'yellow'
+          syncTime = null
+        }
+        else if (lagHours < 4) state = 'green'
+        else if (lagHours < 8) state = 'red'
+        else {
+          state = 'gray'
+          syncTime = null
+        }
+
+        const stateTextMap = {
+          green: 'Up-to-date',
+          yellow: 'Syncing...',
+          red: 'Outdated',
+          gray: 'Status Unknown'
+        };
+
+        return {
+          state: state || 'gray',
+          text: stateTextMap[state] || 'Status Unknown',
+          lastSync: syncTime || null
+        };
+      };
+
+
+      const formatTime = (date) => {
+        if (!date) return '';
+        const pad = (num) => num.toString().padStart(2, '0');
+        const year = date.getFullYear();
+        const month = pad(date.getMonth() + 1);
+        const day = pad(date.getDate());
+        const hours = pad(date.getHours());
+        const minutes = pad(date.getMinutes());
+        return `${year}-${month}-${day} ${hours}:${minutes}`;
+      };
+
+      mirrorLinks.forEach(link => {
+        const statusElement = link.nextElementSibling;
+        if (statusElement && statusElement.classList.contains('sync-status-text')) {
+          statusElement.innerHTML = `<span class="text-gray-400">Checking status...</span>`;
+        }
+      });
+
+      fetchAllStatuses().then(allStatuses => {
+        mirrorLinks.forEach(link => {
+          const mirrorName = link.dataset.mirrorName;
+          const statusElement = link.nextElementSibling;
+
+          if (!mirrorName || !statusElement || !statusElement.classList.contains('sync-status-text')) return;
+
+          const status = getMirrorStatusInfo(mirrorName, allStatuses);
+
+          const colorMap = {
+            green: 'text-green-600',
+            yellow: 'text-yellow-600',
+            red: 'text-red-600',
+            gray: 'text-gray-500'
+          };
+          const statusColorClass = colorMap[status.state] || 'text-gray-500';
+
+          let displayText = `<span class="${statusColorClass}">${status.text}</span>`;
+          if (status.lastSync) {
+            displayText += ` (Sync: ${formatTime(status.lastSync)})`;
+          }
+
+          statusElement.innerHTML = displayText;
+        });
+      }).catch(error => {
+        console.error("Error processing statuses:", error);
+        mirrorLinks.forEach(link => {
+          const statusElement = link.nextElementSibling;
+          if (statusElement && statusElement.classList.contains('sync-status-text')) {
+            statusElement.innerHTML = `<span class="text-red-500 font-semibold">Failed to check status</span>`;
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
