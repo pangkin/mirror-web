@@ -112,12 +112,12 @@
                   href="https://mirror.pangkin.com">https://mirror.pangkin.com</a>
               </p>
             </div>
-            <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
               <!-- Repository Card: Debian -->
               <div class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center">
                 <div class="distro-logo debian-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">Debian</h3>
-                <p class="text-gray-500">안정적이고 신뢰할 수 있는 오픈소스 운영체제.</p>
+                <p class="text-gray-500 mb-4">안정적이고 신뢰할 수 있는 오픈소스 운영체제.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="debian"
@@ -143,7 +143,7 @@
               <div class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center">
                 <div class="distro-logo opnsense-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">OPNsense</h3>
-                <p class="text-gray-500">사용하기 쉬운 오픈소스 방화벽 및 라우팅 플랫폼.</p>
+                <p class="text-gray-500 mb-4">사용하기 쉬운 오픈소스 방화벽 및 라우팅 플랫폼.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="opnsense"
@@ -157,7 +157,7 @@
               <div class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center">
                 <div class="distro-logo proxmox-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">Proxmox</h3>
-                <p class="text-gray-500">서버 가상화 관리용 오픈소스 플랫폼.</p>
+                <p class="text-gray-500 mb-4">서버 가상화 관리용 오픈소스 플랫폼.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="proxmox"
@@ -171,7 +171,7 @@
               <div class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center">
                 <div class="distro-logo rocky-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">Rocky Linux</h3>
-                <p class="text-gray-500">커뮤니티 지원 기반의 엔터프라이즈급 운영체제.</p>
+                <p class="text-gray-500 mb-4">커뮤니티 지원 기반의 엔터프라이즈급 운영체제.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="rocky"
@@ -187,8 +187,21 @@
                   </div>
                 </div>
               </div>
+              <!-- Repository Card: Arch Linux -->
+              <div class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center">
+                <div class="distro-logo arch-logo"></div>
+                <h3 class="text-xl font-bold text-gray-900">Arch Linux</h3>
+                <p class="text-gray-500 mb-4">가볍고 유연한 배포판.</p>
+                <div class="flex flex-col gap-2 mt-auto w-full">
+                  <div>
+                    <a data-mirror-name="archlinux"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      href="/archlinux/">Archlinux</a>
+                    <div class="sync-status-text"></div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
         </section>
 
         <section class="py-16 sm:py-24 bg-white">
@@ -320,7 +333,6 @@
           hour: '2-digit',
           minute: '2-digit',
           hour12: false,
-          timeZone: 'Asia/Seoul',
           timeZoneName: 'short', // 'KST'와 같은 타임존 약어 추가
         };
 
