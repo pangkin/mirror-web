@@ -269,7 +269,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       const mirrorLinks = document.querySelectorAll('a[data-mirror-name]');
 
-      const fetchAllStatuses = () => {
+      const fetchTimeStatuses = () => {
         return fetch(`https://mirror.pangkin.com/asset/status.json`)
           .then(response => {
             if (!response.ok) {
@@ -283,25 +283,45 @@
           });
       };
 
-      const getMirrorStatusInfo = (mirrorName, allStatuses) => {
+      const fetchSyncStatuses = (mirrorName) => {
+        return fetch(`https://mirror.pangkin.com/asset/dsync-status/${mirrorName}`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Failed to load status file.');
+            }
+            return response.text();
+          })
+          .catch(error => {
+            console.error("Failed to fetch status.json:", error);
+            return {};
+          });
+      };
+
+      const getMirrorStatusInfo = async (mirrorName, allStatuses) => {
         const mirrorInfo = allStatuses[mirrorName];
         if (!mirrorInfo) {
           return { state: 'gray', text: '상태 확인 불가', lastSync: null };
         }
 
-        const isSync = mirrorInfo.isSync
+        //const isSync = mirrorInfo.isSync
         let syncTime = new Date(mirrorInfo.lastSync);
         const now = new Date();
         const lagHours = (now - syncTime) / (1000 * 60 * 60);
 
-        let status
+        const syncStatus = Number(await fetchSyncStatuses(mirrorName));
+        console.log(syncStatus)
+        let state = null;
 
-        if (isSync) {
+        if (syncStatus === 2) {
           state = 'yellow'
           syncTime = null
         }
+        else if (syncStatus === 0) {
+          state = 'red'
+          syncTime = null
+        }
         else if (lagHours < 4) state = 'green'
-        else if (lagHours < 8) state = 'red'
+        else if (lagHours < 8) state = 'orange'
         else {
           state = 'gray'
           syncTime = null
@@ -310,7 +330,8 @@
         const stateTextMap = {
           green: '최신',
           yellow: '동기화 중...',
-          red: '오래됨',
+          orange: '오래됨',
+          red: '동기화 실패',
           gray: '상태 확인 불가'
         };
 
@@ -325,7 +346,6 @@
       const formatTime = (date) => {
         if (!date) return '';
 
-        // 'sv-SE' 로캘은 'YYYY-MM-DD' 형식을 사용하므로 기존 코드와 가장 유사한 출력을 만듭니다.
         const options = {
           year: 'numeric',
           month: '2-digit',
@@ -333,7 +353,7 @@
           hour: '2-digit',
           minute: '2-digit',
           hour12: false,
-          timeZoneName: 'short', // 'KST'와 같은 타임존 약어 추가
+          timeZoneName: 'short',
         };
 
         const formattedDate = new Intl.DateTimeFormat('sv-SE', options).format(date);
@@ -348,20 +368,20 @@
         }
       });
 
-      fetchAllStatuses().then(allStatuses => {
-        mirrorLinks.forEach(link => {
+      fetchTimeStatuses().then(allStatuses => {
+        mirrorLinks.forEach(async link => {
           const mirrorName = link.dataset.mirrorName;
           const statusElement = link.nextElementSibling;
 
           if (!mirrorName || !statusElement || !statusElement.classList.contains('sync-status-text')) return;
-
-          const status = getMirrorStatusInfo(mirrorName, allStatuses);
+          const status = await getMirrorStatusInfo(mirrorName, allStatuses);
 
           const colorMap = {
             green: 'text-green-600',
             yellow: 'text-yellow-600',
             red: 'text-red-600',
-            gray: 'text-gray-500'
+            gray: 'text-gray-500',
+            orange: 'text-orange-600'
           };
           const statusColorClass = colorMap[status.state] || 'text-gray-500';
 
