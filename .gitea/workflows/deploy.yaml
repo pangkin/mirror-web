@@ -21,4 +21,14 @@ jobs:
 
             echo "🏃 Git pull start."
             git pull origin main
+            echo "🏃 Git pull finished."
+
+            echo "🏃 NPM install start."
+            npm install
+            echo "🏃 NPM install finished."
+
+            echo "🏃 TailwindCSS build start."
+            npx @tailwindcss/cli -i ./global.css -o ./tailwind.css
+            echo "🏃 TailwindCSS build finished."
+
             echo "👍 Task finished."
