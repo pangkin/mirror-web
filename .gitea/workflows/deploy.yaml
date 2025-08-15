@@ -29,6 +29,7 @@ jobs:
 
             echo "🏃 TailwindCSS build start."
             npx @tailwindcss/cli -i ./global.css -o ./tailwind.css
+            cp tailwind.css ${{ secrets.CSS_DIR }}
             echo "🏃 TailwindCSS build finished."
 
             echo "👍 Task finished."
