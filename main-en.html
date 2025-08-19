@@ -314,8 +314,8 @@
           state = 'red'
           syncTime = null
         }
-        else if (lagHours < 4) state = 'green'
-        else if (lagHours < 8) state = 'orange'
+        else if (lagHours < 8) state = 'green'
+        else if (lagHours < 12) state = 'orange'
         else {
           state = 'gray'
           syncTime = null
