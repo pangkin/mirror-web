@@ -277,13 +277,13 @@
           });
       };
 
-      const fetchSyncStatuses = (mirrorName) => {
-        return fetch(`https://mirror.pangkin.com/asset/dsync-status/${mirrorName}`)
+      const fetchSyncStatuses = () => {
+        return fetch(`https://mirror.pangkin.com/dsync-status/api.php`)
           .then(response => {
             if (!response.ok) {
               throw new Error('Failed to load status file.');
             }
-            return response.text();
+            return response.json();
           })
           .catch(error => {
             console.error("Failed to fetch status.json:", error);
@@ -291,7 +291,7 @@
           });
       };
 
-      const getMirrorStatusInfo = async (mirrorName, allStatuses) => {
+      const getMirrorStatusInfo = async (mirrorName, allStatuses, allSyncStatus) => {
         const mirrorInfo = allStatuses[mirrorName];
         if (!mirrorInfo) {
           return { state: 'gray', text: 'Status Unknown', lastSync: null };
@@ -302,7 +302,7 @@
         const now = new Date();
         const lagHours = (now - syncTime) / (1000 * 60 * 60);
 
-        const syncStatus = Number(await fetchSyncStatuses(mirrorName));
+        const syncStatus = allSyncStatus.repositories[mirrorName]
 
         let state = null;
 
@@ -364,30 +364,31 @@
       });
 
       fetchTimeStatuses().then(allStatuses => {
-        mirrorLinks.forEach(async link => {
-          const mirrorName = link.dataset.mirrorName;
-          const statusElement = link.nextElementSibling;
+        fetchSyncStatuses().then(allSyncStatus => {
+          mirrorLinks.forEach(async link => {
+            const mirrorName = link.dataset.mirrorName;
+            const statusElement = link.nextElementSibling;
 
-          if (!mirrorName || !statusElement || !statusElement.classList.contains('sync-status-text')) return;
+            if (!mirrorName || !statusElement || !statusElement.classList.contains('sync-status-text')) return;
+            const status = await getMirrorStatusInfo(mirrorName, allStatuses, allSyncStatus);
 
-          const status = await getMirrorStatusInfo(mirrorName, allStatuses);
+            const colorMap = {
+              green: 'text-green-600',
+              yellow: 'text-yellow-600',
+              red: 'text-red-600',
+              gray: 'text-gray-500',
+              orange: 'text-orange-600'
+            };
+            const statusColorClass = colorMap[status.state] || 'text-gray-500';
 
-          const colorMap = {
-            green: 'text-green-600',
-            yellow: 'text-yellow-600',
-            red: 'text-red-600',
-            gray: 'text-gray-500',
-            orange: 'text-orange-600'
-          };
-          const statusColorClass = colorMap[status.state] || 'text-gray-500';
+            let displayText = `<span class="${statusColorClass}">${status.text}</span>`;
+            if (status.lastSync) {
+              displayText += ` (동기화: ${formatTime(status.lastSync)})`;
+            }
 
-          let displayText = `<span class="${statusColorClass}">${status.text}</span>`;
-          if (status.lastSync) {
-            displayText += ` (Sync: ${formatTime(status.lastSync)})`;
-          }
-
-          statusElement.innerHTML = displayText;
-        });
+            statusElement.innerHTML = displayText;
+          });
+        })
       }).catch(error => {
         console.error("Error processing statuses:", error);
         mirrorLinks.forEach(link => {
