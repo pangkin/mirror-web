@@ -368,8 +368,11 @@
         }
       });
 
-      fetchTimeStatuses().then(allStatuses => {
-        fetchSyncStatuses().then(allSyncStatus => {
+      async function getStatuses() {
+        try {
+          const allStatuses = await fetchTimeStatuses()
+          const allSyncStatus = await fetchSyncStatuses()
+
           mirrorLinks.forEach(async link => {
             const mirrorName = link.dataset.mirrorName;
             const statusElement = link.nextElementSibling;
@@ -393,16 +396,14 @@
 
             statusElement.innerHTML = displayText;
           });
-        })
-      }).catch(error => {
-        console.error("Error processing statuses:", error);
-        mirrorLinks.forEach(link => {
-          const statusElement = link.nextElementSibling;
-          if (statusElement && statusElement.classList.contains('sync-status-text')) {
-            statusElement.innerHTML = `<span class="text-red-500 font-semibold">상태 확인 실패</span>`;
-          }
-        });
-      });
+        } catch (error) {
+          console.error(error);
+        } finally {
+          setTimeout(getStatuses, 60000);
+        }
+      }
+
+      getStatuses()
     });
   </script>
 </body>
