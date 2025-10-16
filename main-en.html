@@ -312,6 +312,20 @@
           });
       };
 
+      const fetchDiskUsages = () => {
+        return fetch(`https://mirror.pangkin.com/diskusage/usage.json`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Failed to load status file.');
+            }
+            return response.json();
+          })
+          .catch(error => {
+            console.error("Failed to fetch status.json:", error);
+            return {};
+          });
+      };
+
       const getMirrorStatusInfo = async (mirrorName, allStatuses, allSyncStatus) => {
         const mirrorInfo = allStatuses[mirrorName];
         if (!mirrorInfo) {
@@ -392,6 +406,7 @@
           mirrorLinks.forEach(async link => {
             const mirrorName = link.dataset.mirrorName;
             const statusElement = link.nextElementSibling;
+            const allDiskUsages = await fetchDiskUsages()
 
             if (!mirrorName || !statusElement || !statusElement.classList.contains('sync-status-text')) return;
             const status = await getMirrorStatusInfo(mirrorName, allStatuses, allSyncStatus);
@@ -409,6 +424,8 @@
             if (status.lastSync) {
               displayText += ` (Sync: ${formatTime(status.lastSync)})`;
             }
+
+            displayText += ` · ${allDiskUsages[mirrorName]}`
 
             statusElement.innerHTML = displayText;
           });
