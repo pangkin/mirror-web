@@ -21,6 +21,155 @@
       text-align: center;
       height: 1rem;
     }
+
+    /* 공지사항 팝업 스타일 */
+    .notice-popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .notice-popup-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .notice-popup {
+      background: white;
+      border-radius: 1rem;
+      max-width: 800px;
+      width: 90%;
+      max-height: 80vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+
+    .notice-popup-overlay.active .notice-popup {
+      transform: scale(1);
+    }
+
+    .notice-popup-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid #e5e7eb;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .notice-popup-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .notice-popup-close {
+      cursor: pointer;
+      color: #6b7280;
+      transition: color 0.2s;
+    }
+
+    .notice-popup-close:hover {
+      color: #111827;
+    }
+
+    .notice-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: white;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .notice-badge-scheduled {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+
+    .notice-badge-ongoing {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .notice-badge-high {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    }
+
+    .notice-badge-normal {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    .notice-content {
+      line-height: 1.7;
+      color: #374151;
+    }
+
+    .notice-content h1,
+    .notice-content h2,
+    .notice-content h3 {
+      font-weight: 600;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .notice-content h2 {
+      font-size: 1.25rem;
+    }
+
+    .notice-content h3 {
+      font-size: 1.1rem;
+    }
+
+    .notice-content p {
+      margin-bottom: 0.75rem;
+    }
+
+    .notice-content ul,
+    .notice-content ol {
+      margin-left: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .notice-content li {
+      margin-bottom: 0.25rem;
+    }
+
+    .notice-content strong {
+      font-weight: 600;
+      color: #111827;
+    }
   </style>
 </head>
 
@@ -38,7 +187,11 @@
               <h2 class="text-gray-900 text-xl font-extrabold leading-tight tracking-[-0.015em]">Pangkin Mirror</h2>
             </div>
           </a>
-          <a href="/" class="text-sm font-medium text-gray-500 hover:text-gray-900">한국어</a>
+          <div class="flex items-center gap-4">
+            <a href="https://notice.mirror.pangkin.com"
+              class="text-sm font-medium text-gray-500 hover:text-gray-900">Notice</a>
+            <a href="/" class="text-sm font-medium text-gray-500 hover:text-gray-900">한국어</a>
+          </div>
         </div>
       </header>
       <main class="flex-1">
@@ -488,6 +641,111 @@
       }
 
       getStatuses()
+    });
+  </script>
+
+  <!-- 공지사항 팝업 -->
+  <div id="noticePopupOverlay" class="notice-popup-overlay">
+    <div class="notice-popup">
+      <div class="notice-popup-header">
+        <h3 class="text-lg font-bold text-gray-900">공지사항</h3>
+        <span class="notice-popup-close material-icons" onclick="closeNoticePopup()">close</span>
+      </div>
+      <div id="noticePopupBody" class="notice-popup-body">
+        <!-- 공지사항 내용이 여기에 표시됩니다 -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 공지사항 팝업 관련 함수
+    async function loadActiveNotices() {
+      try {
+        const response = await fetch('http://localhost:3000/api/notices');
+        const notices = await response.json();
+
+        // 예정(scheduled) 또는 진행 중(ongoing) 상태의 공지만 필터링
+        const activeNotices = notices.filter(notice =>
+          notice.status === 'scheduled' || notice.status === 'ongoing'
+        );
+
+        if (activeNotices.length > 0) {
+          showNoticePopup(activeNotices);
+        }
+      } catch (error) {
+        console.error('공지사항을 불러오는데 실패했습니다:', error);
+      }
+    }
+
+    function showNoticePopup(notices) {
+      const statusLabels = {
+        scheduled: '예정',
+        ongoing: '진행 중'
+      };
+
+      const statusBadgeClass = {
+        scheduled: 'notice-badge-scheduled',
+        ongoing: 'notice-badge-ongoing'
+      };
+
+      const priorityLabels = {
+        high: '중요',
+        normal: '일반',
+        low: '참고'
+      };
+
+      const priorityBadgeClass = {
+        high: 'notice-badge-high',
+        normal: 'notice-badge-normal'
+      };
+
+      const popupBody = document.getElementById('noticePopupBody');
+
+      popupBody.innerHTML = notices.map(notice => {
+        const date = new Date(notice.date);
+        const formattedDate = date.toLocaleDateString('ko-KR', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+
+        return `
+          <div style="margin-bottom: ${notices.length > 1 ? '2rem' : '0'}; ${notices.length > 1 ? 'padding-bottom: 2rem; border-bottom: 1px solid #e5e7eb;' : ''}">
+            <div style="margin-bottom: 0.75rem;">
+              <span class="notice-badge ${priorityBadgeClass[notice.priority]}">${priorityLabels[notice.priority]}</span>
+              <span class="notice-badge ${statusBadgeClass[notice.status]}">${statusLabels[notice.status]}</span>
+            </div>
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 0.5rem;">${notice.title}</h2>
+            <p style="font-size: 0.875rem; color: #6b7280; margin-bottom: 1rem;">
+              <span class="material-icons" style="font-size: 14px; vertical-align: middle;">event</span>
+              ${formattedDate} · ${notice.author}
+            </p>
+            <div class="notice-content">
+              ${notice.content}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const overlay = document.getElementById('noticePopupOverlay');
+      overlay.classList.add('active');
+    }
+
+    function closeNoticePopup() {
+      const overlay = document.getElementById('noticePopupOverlay');
+      overlay.classList.remove('active');
+    }
+
+    // 팝업 외부 클릭 시 닫기
+    document.getElementById('noticePopupOverlay')?.addEventListener('click', function (e) {
+      if (e.target === this) {
+        closeNoticePopup();
+      }
+    });
+
+    // 페이지 로드 시 공지사항 확인
+    document.addEventListener('DOMContentLoaded', function () {
+      loadActiveNotices();
     });
   </script>
 </body>
