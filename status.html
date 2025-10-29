@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <title>Pangkin Mirror Status</title>
+  <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+  <link href="https://http.krfoss.org/.web/http.css" rel="stylesheet" />
+  <link href="/tailwind.css" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <style>
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .status-dot-green {
+      background-color: #34a853;
+    }
+
+    .status-dot-yellow {
+      background-color: #fbbc05;
+    }
+
+    .status-dot-red {
+      background-color: #ea4335;
+    }
+
+    .status-dot-gray {
+      background-color: #9aa0a6;
+    }
+
+    .status-dot-orange {
+      background-color: #f9ab00;
+    }
+  </style>
+</head>
+
+<body class="bg-white">
+  <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden"
+    style='font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;'>
+    <div class="layout-container flex h-full grow flex-col">
+      <header class="border-b border-solid border-gray-200 py-4">
+        <div class="mx-auto flex max-w-7xl items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8">
+          <a href="/">
+            <div class="flex items-center gap-4 text-gray-900">
+              <div class="size-8">
+                <img alt="Pangkin 미러 로고" class="h-full w-full" src="https://mirror.pangkin.com/asset/logo.png" />
+              </div>
+              <h2 class="text-gray-900 text-xl font-extrabold leading-tight tracking-[-0.015em]">Pangkin Mirror</h2>
+            </div>
+          </a>
+        </div>
+      </header>
+      <main class="flex-1 bg-gray-50 py-12">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">미러 상태</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-600">각 저장소의 실시간 동기화 상태를 확인하세요.</p>
+          </div>
+          <div class="overflow-x-auto shadow-lg rounded-xl border border-gray-200">
+            <table class="min-w-full bg-white">
+              <thead class="bg-gray-100 border-b border-gray-200">
+                <tr>
+                  <th scope="col" class="px-6 py-5 text-left text-sm font-semibold text-gray-800">저장소</th>
+                  <th scope="col" class="px-6 py-5 text-left text-sm font-semibold text-gray-800">상태</th>
+                  <th scope="col" class="px-6 py-5 text-left text-sm font-semibold text-gray-800">마지막 동기화</th>
+                  <th scope="col" class="px-6 py-5 text-left text-sm font-semibold text-gray-800">디스크 사용량</th>
+                </tr>
+              </thead>
+              <tbody id="status-table-body" class="divide-y divide-gray-200">
+                <!-- Status rows will be inserted here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+      <footer class="border-t border-solid border-gray-200 bg-white">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 pb-4">
+          <div class="flex items-center justify-center">
+            <p class="text-gray-500 text-base font-normal leading-normal">© 2025 Pangkin. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const statusTableBody = document.getElementById('status-table-body');
+
+      const fetchTimeStatuses = () => fetch(`https://mirror.pangkin.com/asset/status.json`).then(res => res.json()).catch(() => ({}));
+      const fetchSyncStatuses = () => fetch(`https://mirror.pangkin.com/dsync-status/api.php`).then(res => res.json()).catch(() => ({ repositories: {} }));
+      const fetchDiskUsages = () => fetch(`https://mirror.pangkin.com/diskusage/usage.json`).then(res => res.json()).catch(() => ({}));
+
+      const getMirrorStatusInfo = (mirrorName, allStatuses, allSyncStatus) => {
+        const mirrorInfo = allStatuses[mirrorName];
+        if (!mirrorInfo) {
+          return { state: 'gray', text: '상태 확인 불가', lastSync: null };
+        }
+
+        let syncTime = new Date(mirrorInfo.lastSync);
+        const now = new Date();
+        const lagHours = (now - syncTime) / (1000 * 60 * 60);
+        const syncStatus = allSyncStatus.repositories[mirrorName];
+
+        let state = 'gray';
+        if (syncStatus === 2) {
+          state = 'yellow';
+          syncTime = null;
+        } else if (syncStatus === 0) {
+          state = 'red';
+          syncTime = null;
+        } else if (lagHours < 8) {
+          state = 'green';
+        } else if (lagHours < 12) {
+          state = 'orange';
+        } else {
+          syncTime = null;
+        }
+
+        const stateTextMap = {
+          green: '최신',
+          yellow: '동기화 중',
+          orange: '오래됨',
+          red: '동기화 실패',
+          gray: '상태 확인 불가'
+        };
+
+        return {
+          state: state,
+          text: stateTextMap[state],
+          lastSync: syncTime
+        };
+      };
+
+      const formatTime = (date) => {
+        if (!date) return '-';
+        return new Intl.DateTimeFormat('ko-KR', {
+          year: 'numeric', month: '2-digit', day: '2-digit',
+          hour: '2-digit', minute: '2-digit',
+          hour12: false
+        }).format(date);
+      };
+
+      async function getStatuses() {
+        try {
+          const [allStatuses, allSyncStatus, allDiskUsages] = await Promise.all([
+            fetchTimeStatuses(),
+            fetchSyncStatuses(),
+            fetchDiskUsages()
+          ]);
+
+          statusTableBody.innerHTML = ''; // Clear previous entries
+
+          const mirrorNames = Object.keys(allStatuses).sort();
+
+          if (mirrorNames.length === 0) {
+            statusTableBody.innerHTML = '<tr><td colspan="4" class="text-center text-gray-500 p-8">상태를 확인할 미러가 없습니다.</td></tr>';
+            return;
+          }
+
+          for (const mirrorName of mirrorNames) {
+            const status = getMirrorStatusInfo(mirrorName, allStatuses, allSyncStatus);
+            const diskUsage = allDiskUsages[mirrorName] || '-';
+
+            const row = document.createElement('tr');
+            row.className = 'hover:bg-gray-50 transition-colors duration-200';
+
+            row.innerHTML = `
+              <td class="px-6 py-5 whitespace-nowrap text-base font-medium text-gray-900">${mirrorName}</td>
+              <td class="px-6 py-5 whitespace-nowrap">
+                <div class="flex items-center">
+                  <span class="status-dot status-dot-${status.state}"></span>
+                  <span class="ml-2 text-sm text-gray-700">${status.text}</span>
+                </div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap text-sm text-gray-600">${formatTime(status.lastSync)}</td>
+              <td class="px-6 py-5 whitespace-nowrap text-sm text-gray-600">${diskUsage}</td>
+            `;
+            statusTableBody.appendChild(row);
+          }
+        } catch (error) {
+          console.error('Error fetching status:', error);
+          statusTableBody.innerHTML = '<tr><td colspan="4" class="text-center text-red-500 p-8">데이터를 불러오는 데 실패했습니다.</td></tr>';
+        } finally {
+          setTimeout(getStatuses, 60000);
+        }
+      }
+
+      getStatuses();
+    });
+  </script>
+</body>
+
+</html>
