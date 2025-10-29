@@ -41,24 +41,68 @@
         <a href="/" class="text-sm font-medium text-gray-500 hover:text-gray-900">한국어</a>
       </header>
       <main class="flex-1">
-        <section class="relative py-24 md:py-32 lg:py-40">
-          <div class="absolute inset-0 bg-cover bg-center"
-            style='background-image: linear-gradient(rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.7) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAvqsEfIp0SWwcxHR5oJYFmO6xIoUi6K_7_wDggpM1XxGkk01nh9C-DsulaFPJWcmFNkenSdc2zS4Z-5ManTiU6MSRLMu0ZefD-H5I1m70vzn0NvPREs7Ky1FvXrDlFXI9WRAvouXz6j-_S9EzbyDbcfKMn_VSYsxXZm2yvDTj9Fln1n7AyxLpeSD2aG2dP-q8aPLpALfAYFlXYncaZcuuMlMTxDzXgEM5xKgdjR-WoM2rASAK3gauGIrJkx67LfB4KZ1-ecJHRGXk");'>
+        <section class="relative py-16 md:py-20 lg:py-24 overflow-hidden"
+          style="background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);">
+          <!-- Decorative elements -->
+          <div class="absolute inset-0 opacity-30">
+            <div
+              style="position: absolute; top: 10%; left: 10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%); border-radius: 50%;">
+            </div>
+            <div
+              style="position: absolute; bottom: 10%; right: 10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%); border-radius: 50%;">
+            </div>
           </div>
+
           <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-gray-900 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tighter">
-              Pangkin Mirror
+            <!-- Badge -->
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200 shadow-sm mb-8">
+              <span class="material-icons text-blue-600" style="font-size: 20px;">cloud_sync</span>
+              <span class="text-sm font-medium text-gray-700">Reliable Open Source Mirror Service</span>
+            </div>
+
+            <h1 class="text-gray-900 text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
+              <span
+                style="background: linear-gradient(135deg, #1e293b 0%, #475569 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Pangkin
+                Mirror</span>
             </h1>
-            <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-600">
-              A personally-operated mirror server for various open-source projects. <br class="hidden sm:block" />
-              This is a best-effort service, providing a reliable resource for the
-              community.
+
+            <p class="mt-8 max-w-2xl mx-auto text-xl md:text-2xl text-gray-600 leading-relaxed">
+              A personally-operated mirror server<br class="hidden sm:block" />
+              for <span class="font-semibold text-gray-800">various open-source projects</span>
             </p>
-            <div class="mt-10">
-              <a class="inline-flex items-center justify-center rounded-md h-12 px-8 bg-blue-500 text-white text-lg font-bold leading-normal tracking-[0.015em] hover:bg-blue-600 transition-colors"
+
+            <!-- <p class="mt-4 max-w-xl mx-auto text-base text-gray-500">
+              Providing reliable resources with best effort
+            </p> -->
+
+            <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a class="inline-flex items-center justify-center gap-2 rounded-xl h-14 px-8 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-lg font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-105 transition-all duration-200"
                 href="#available-mirrors">
-                Get Started
+                <span>Get Started</span>
+                <span class="material-icons" style="font-size: 20px;">arrow_forward</span>
               </a>
+              <a class="inline-flex items-center justify-center gap-2 rounded-xl h-14 px-8 bg-white text-gray-700 text-lg font-semibold border-2 border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all duration-200"
+                href="#about-project">
+                <span class="material-icons" style="font-size: 20px;">info</span>
+                <span>About Project</span>
+              </a>
+            </div>
+
+            <!-- Statistics -->
+            <div class="mt-20 grid grid-cols-3 gap-8 max-w-3xl mx-auto">
+              <div class="p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200">
+                <div class="text-3xl font-bold text-gray-900">24/7</div>
+                <div class="mt-2 text-sm text-gray-600">Uptime</div>
+              </div>
+              <div class="p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200">
+                <div class="text-3xl font-bold text-gray-900">1Gbps</div>
+                <div class="mt-2 text-sm text-gray-600">Download Speed</div>
+              </div>
+              <div class="p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200">
+                <div class="text-3xl font-bold text-gray-900">Stable</div>
+                <div class="mt-2 text-sm text-gray-600">Priority Service</div>
+              </div>
             </div>
           </div>
         </section>
@@ -109,105 +153,111 @@
                   href="https://mirror.pangkin.com">https://mirror.pangkin.com</a></p>
             </div>
             <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              <div class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center">
+              <div
+                class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-200">
                 <div class="distro-logo debian-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">Debian</h3>
                 <p class="text-gray-500 mb-4">A stable and reliable open-source operating system.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="debian"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
                       href="/debian/">Debian</a>
                     <div class="sync-status-text"></div>
                   </div>
                   <div>
                     <a data-mirror-name="debian-cd"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
                       href="/debian-cd/">Debian-CD</a>
                     <div class="sync-status-text"></div>
                   </div>
                   <div>
                     <a data-mirror-name="debian-security"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
                       href="/debian-security/">Debian-Security</a>
                     <div class="sync-status-text"></div>
                   </div>
                 </div>
               </div>
-              <div class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center">
+              <div
+                class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-200">
                 <div class="distro-logo opnsense-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">OPNsense</h3>
                 <p class="text-gray-500 mb-4">An open-source, easy-to-use firewall and routing platform.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="opnsense"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
                       href="/opnsense/">OPNsense</a>
                     <div class="sync-status-text"></div>
                   </div>
                 </div>
               </div>
-              <div class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center">
+              <div
+                class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-200">
                 <div class="distro-logo proxmox-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">Proxmox</h3>
                 <p class="text-gray-500 mb-4">An open-source server virtualization management platform.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="proxmox"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
                       href="/proxmox/">Proxmox</a>
                     <div class="sync-status-text"></div>
                   </div>
                 </div>
               </div>
-              <div class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center">
+              <div
+                class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-200">
                 <div class="distro-logo rocky-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">Rocky Linux</h3>
                 <p class="text-gray-500 mb-4">A community-supported, production-grade enterprise OS.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="rocky"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
                       href="/rocky/">Rocky</a>
                     <div class="sync-status-text"></div>
                   </div>
                   <div>
                     <a data-mirror-name="rocky-sigs"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
                       href="/rocky-sigs/">Rocky-SIGs</a>
                     <div class="sync-status-text"></div>
                   </div>
                 </div>
               </div>
               <!-- Repository Card: Arch Linux -->
-              <div class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center">
+              <div
+                class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-200">
                 <div class="distro-logo arch-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">Arch Linux</h3>
                 <p class="text-gray-500 mb-4">A simple, lightweight distribution.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="archlinux"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
                       href="/archlinux/">Arch Linux</a>
                     <div class="sync-status-text"></div>
                   </div>
                 </div>
               </div>
               <!-- Repository Card: Kali Linux -->
-              <div class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center">
+              <div
+                class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-200">
                 <div class="distro-logo arch-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">Kali Linux</h3>
                 <p class="text-gray-500 mb-4">An advanced Linux distribution for security tasks.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="kali"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
                       href="/kali/">Kali</a>
                     <div class="sync-status-text"></div>
                   </div>
                   <div>
                     <a data-mirror-name="kali-images"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
                       href="/kali-images/">Kali-Images</a>
                     <div class="sync-status-text"></div>
                   </div>
@@ -262,7 +312,7 @@
                 ROKFOSS project,<br class="hidden sm:block" /> contributing to the growth and availability of
                 open-source resources in the region.</p>
               <div class="mt-8">
-                <a class="inline-flex items-center justify-center rounded-md h-12 px-8 bg-blue-500 text-white text-lg font-bold leading-normal tracking-[0.015em] hover:bg-blue-600 transition-colors"
+                <a class="inline-flex items-center justify-center rounded-md h-12 px-8 bg-blue-500 text-white text-lg font-bold leading-normal tracking-[0.015em] shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-200"
                   href="https://krfoss.org/" target="_blank" rel="noopener noreferrer">Learn More about
                   ROKFOSS</a>
               </div>
