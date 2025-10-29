@@ -667,7 +667,7 @@
     // 공지사항 팝업 관련 함수
     async function loadActiveNotices() {
       try {
-        const response = await fetch('http://localhost:3000/api/notices');
+        const response = await fetch('https://notice.mirror.pangkin.com/notices.json');
         const notices = await response.json();
 
         // 예정(scheduled) 또는 진행 중(ongoing) 상태의 공지만 필터링
