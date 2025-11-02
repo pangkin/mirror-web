@@ -10,17 +10,16 @@ const translations = {
     'hero.btnAbout': '프로젝트 소개',
     'hero.stat1': '가동 시간',
     'hero.stat2': '다운로드 속도',
-    'hero.stat3': '우선 서비스',
+    'hero.stat3': '우선 제공',
     'hero.stat3Value': '안정',
     'about.title': '프로젝트 소개',
     'about.description':
-      'Pangkin Mirror는 오픈소스 커뮤니티를 지원하기 위해 개인이 운영하는 프로젝트입니다.',
-    'about.feature1Title': '커뮤니티 중심',
+      'Pangkin Mirror는 오픈소스 커뮤니티를 지원하기 위해 운영하는 개인 미러 프로젝트입니다.',
+    'about.feature1Title': '커뮤니티 주도',
     'about.feature1Desc':
-      '모든 데이터는 각 오픈소스 커뮤니티에서 제공되고 관리됩니다. 사용에 대한 책임은 최종 사용자에게 있습니다.',
-    'about.feature2Title': '비영리',
-    'about.feature2Desc':
-      '이 서비스는 상업적 이익 없이 전적으로 커뮤니티의 이익을 위해 운영됩니다.',
+      '각 오픈소스 커뮤니티에서 데이터를 제공·관리하며, 사용 책임은 최종 사용자에게 있습니다.',
+    'about.feature2Title': '비영리 운영',
+    'about.feature2Desc': '상업적 이익 없이 커뮤니티를 위해 운영합니다.',
     'about.feature3Title': '최신 상태 유지',
     'about.feature3Desc':
       '최신 상태를 유지하기 위해 매일 02시, 06시, 10시, 14시, 18시, 22시에 자동으로 동기화합니다.',
@@ -29,12 +28,11 @@ const translations = {
     'repos.serverAddress': '서버 주소:',
     'contact.title': '연락하기',
     'contact.description':
-      '문의사항, 이슈 또는 제안 사항이 있으시면 언제든지 연락 주세요.',
+      '문의, 이슈 또는 제안 사항이 있으시면 언제든지 연락 주세요.',
     'contact.emailTitle': '이메일',
     'contact.emailDesc':
-      '일반 문의, 지원 또는 피드백은 이메일로 연락하실 수 있습니다.',
-    'contact.githubDesc':
-      '소스 코드, 이슈 추적 및 기여를 위해 GitHub에서 프로젝트를 확인하세요.',
+      '문의, 지원 또는 피드백은 이메일로 연락하실 수 있습니다.',
+    'contact.githubDesc': '소스 코드, 이슈, 기여는 GitHub에서 확인하세요.',
     'rokfoss.title': 'ROKFOSS 프로젝트 참여',
     'rokfoss.description':
       'Pangkin Mirror는 ROKFOSS 프로젝트 참여 미러로서,<br class="hidden sm:block" />지역 오픈소스 리소스 확장에 기여합니다.',
