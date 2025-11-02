@@ -99,7 +99,7 @@ const translations = {
   },
 };
 
-// ==================== 저장소 데이터 (여기만 수정하면 됩니다!) ====================
+// ==================== 저장소 데이터 ====================
 const repositories = [
   {
     id: 'debian',
@@ -134,7 +134,7 @@ const repositories = [
     name: 'Proxmox',
     logo: 'proxmox-logo',
     description: {
-      ko: '오픈소스 서버 가상화 관리 플랫폼.',
+      ko: '서버 가상화 관리용 오픈소스 플랫폼.',
       en: 'An open-source server virtualization management platform.',
     },
     mirrors: [{ name: 'proxmox', path: '/proxmox/', label: 'Proxmox' }],
@@ -144,7 +144,7 @@ const repositories = [
     name: 'Rocky Linux',
     logo: 'rocky-logo',
     description: {
-      ko: '커뮤니티가 지원하는 프로덕션급 엔터프라이즈 OS.',
+      ko: '커뮤니티 지원 기반의 엔터프라이즈급 운영체제.',
       en: 'A community-supported, production-grade enterprise OS.',
     },
     mirrors: [
@@ -157,7 +157,7 @@ const repositories = [
     name: 'Arch Linux',
     logo: 'arch-logo',
     description: {
-      ko: '간단하고 가벼운 배포판.',
+      ko: '가볍고 유연한 배포판.',
       en: 'A simple, lightweight distribution.',
     },
     mirrors: [{ name: 'archlinux', path: '/archlinux/', label: 'Arch Linux' }],
@@ -167,7 +167,7 @@ const repositories = [
     name: 'Kali Linux',
     logo: 'arch-logo',
     description: {
-      ko: '보안 작업을 위한 고급 Linux 배포판.',
+      ko: '보안 작업을 위한 고급 리눅스 배포판.',
       en: 'An advanced Linux distribution for security tasks.',
     },
     mirrors: [
