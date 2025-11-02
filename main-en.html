@@ -245,15 +245,15 @@
 
             <!-- Statistics -->
             <div class="mt-20 grid grid-cols-3 gap-8 max-w-3xl mx-auto">
-              <div class="p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200">
+              <div class="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200 shadow-lg">
                 <div class="text-3xl font-bold text-gray-900">24/7</div>
                 <div class="mt-2 text-sm text-gray-600">Uptime</div>
               </div>
-              <div class="p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200">
+              <div class="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200 shadow-lg">
                 <div class="text-3xl font-bold text-gray-900">1Gbps</div>
                 <div class="mt-2 text-sm text-gray-600">Download Speed</div>
               </div>
-              <div class="p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-200">
+              <div class="p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200 shadow-lg">
                 <div class="text-3xl font-bold text-gray-900">Stable</div>
                 <div class="mt-2 text-sm text-gray-600">Priority Service</div>
               </div>
@@ -269,17 +269,21 @@
                 community.
               </p>
             </div>
-            <div class="mt-16 grid grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-8 lg:gap-x-12">
-              <div class="flex flex-col items-center text-center">
-                <div class="flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
+            <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              <div
+                class="rounded-2xl border border-gray-200 bg-gray-50 p-8 text-center hover:bg-white hover:shadow-lg transition-all duration-200">
+                <div
+                  class="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/30">
                   <span class="material-icons text-4xl">group_work</span>
                 </div>
                 <h3 class="mt-6 text-xl font-bold text-gray-900">Community-Driven</h3>
                 <p class="mt-2 text-base text-gray-500">All data is provided and managed by its respective open-source
                   community. The responsibility for its use lies with the end-user.</p>
               </div>
-              <div class="flex flex-col items-center text-center">
-                <div class="flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
+              <div
+                class="rounded-2xl border border-gray-200 bg-gray-50 p-8 text-center hover:bg-white hover:shadow-lg transition-all duration-200">
+                <div
+                  class="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/30">
                   <span class="material-icons text-4xl">volunteer_activism</span>
                 </div>
                 <h3 class="mt-6 text-xl font-bold text-gray-900">Non-Profit</h3>
@@ -287,8 +291,10 @@
                   without any commercial interest.
                 </p>
               </div>
-              <div class="flex flex-col items-center text-center">
-                <div class="flex h-16 w-16 items-center justify-center rounded-full bg-[#0c7ff2] text-white">
+              <div
+                class="rounded-2xl border border-gray-200 bg-gray-50 p-8 text-center hover:bg-white hover:shadow-lg transition-all duration-200">
+                <div
+                  class="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/30">
                   <span class="material-icons text-4xl">sync</span>
                 </div>
                 <h3 class="mt-6 text-xl font-bold text-gray-900">Always Up-to-Date</h3>
@@ -308,74 +314,74 @@
             </div>
             <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
               <div
-                class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-200">
+                class="flex flex-col items-center gap-4 rounded-2xl p-6 border border-gray-200 bg-white text-center hover:shadow-xl hover:scale-[1.02] transition-all duration-200">
                 <div class="distro-logo debian-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">Debian</h3>
                 <p class="text-gray-500 mb-4">A stable and reliable open-source operating system.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="debian"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
+                      class="w-full inline-flex items-center justify-center rounded-lg h-10 px-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-200"
                       href="/debian/">Debian</a>
                     <div class="sync-status-text"></div>
                   </div>
                   <div>
                     <a data-mirror-name="debian-cd"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
+                      class="w-full inline-flex items-center justify-center rounded-lg h-10 px-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-200"
                       href="/debian-cd/">Debian-CD</a>
                     <div class="sync-status-text"></div>
                   </div>
                   <div>
                     <a data-mirror-name="debian-security"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
+                      class="w-full inline-flex items-center justify-center rounded-lg h-10 px-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-200"
                       href="/debian-security/">Debian-Security</a>
                     <div class="sync-status-text"></div>
                   </div>
                 </div>
               </div>
               <div
-                class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-200">
+                class="flex flex-col items-center gap-4 rounded-2xl p-6 border border-gray-200 bg-white text-center hover:shadow-xl hover:scale-[1.02] transition-all duration-200">
                 <div class="distro-logo opnsense-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">OPNsense</h3>
                 <p class="text-gray-500 mb-4">An open-source, easy-to-use firewall and routing platform.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="opnsense"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
+                      class="w-full inline-flex items-center justify-center rounded-lg h-10 px-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-200"
                       href="/opnsense/">OPNsense</a>
                     <div class="sync-status-text"></div>
                   </div>
                 </div>
               </div>
               <div
-                class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-200">
+                class="flex flex-col items-center gap-4 rounded-2xl p-6 border border-gray-200 bg-white text-center hover:shadow-xl hover:scale-[1.02] transition-all duration-200">
                 <div class="distro-logo proxmox-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">Proxmox</h3>
                 <p class="text-gray-500 mb-4">An open-source server virtualization management platform.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="proxmox"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
+                      class="w-full inline-flex items-center justify-center rounded-lg h-10 px-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-200"
                       href="/proxmox/">Proxmox</a>
                     <div class="sync-status-text"></div>
                   </div>
                 </div>
               </div>
               <div
-                class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-200">
+                class="flex flex-col items-center gap-4 rounded-2xl p-6 border border-gray-200 bg-white text-center hover:shadow-xl hover:scale-[1.02] transition-all duration-200">
                 <div class="distro-logo rocky-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">Rocky Linux</h3>
                 <p class="text-gray-500 mb-4">A community-supported, production-grade enterprise OS.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="rocky"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
+                      class="w-full inline-flex items-center justify-center rounded-lg h-10 px-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-200"
                       href="/rocky/">Rocky</a>
                     <div class="sync-status-text"></div>
                   </div>
                   <div>
                     <a data-mirror-name="rocky-sigs"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
+                      class="w-full inline-flex items-center justify-center rounded-lg h-10 px-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-200"
                       href="/rocky-sigs/">Rocky-SIGs</a>
                     <div class="sync-status-text"></div>
                   </div>
@@ -383,14 +389,14 @@
               </div>
               <!-- Repository Card: Arch Linux -->
               <div
-                class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-200">
+                class="flex flex-col items-center gap-4 rounded-2xl p-6 border border-gray-200 bg-white text-center hover:shadow-xl hover:scale-[1.02] transition-all duration-200">
                 <div class="distro-logo arch-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">Arch Linux</h3>
                 <p class="text-gray-500 mb-4">A simple, lightweight distribution.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="archlinux"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
+                      class="w-full inline-flex items-center justify-center rounded-lg h-10 px-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-200"
                       href="/archlinux/">Arch Linux</a>
                     <div class="sync-status-text"></div>
                   </div>
@@ -398,20 +404,20 @@
               </div>
               <!-- Repository Card: Kali Linux -->
               <div
-                class="flex flex-col items-center gap-4 rounded-lg p-6 border border-gray-200 bg-white text-center hover:shadow-xl transition-all duration-200">
+                class="flex flex-col items-center gap-4 rounded-2xl p-6 border border-gray-200 bg-white text-center hover:shadow-xl hover:scale-[1.02] transition-all duration-200">
                 <div class="distro-logo arch-logo"></div>
                 <h3 class="text-xl font-bold text-gray-900">Kali Linux</h3>
                 <p class="text-gray-500 mb-4">An advanced Linux distribution for security tasks.</p>
                 <div class="flex flex-col gap-2 mt-auto w-full">
                   <div>
                     <a data-mirror-name="kali"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
+                      class="w-full inline-flex items-center justify-center rounded-lg h-10 px-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-200"
                       href="/kali/">Kali</a>
                     <div class="sync-status-text"></div>
                   </div>
                   <div>
                     <a data-mirror-name="kali-images"
-                      class="w-full inline-flex items-center justify-center rounded-md h-10 px-4 bg-blue-500 text-white text-sm font-medium shadow-md shadow-blue-500/20 hover:shadow-md hover:shadow-blue-500/25 hover:scale-[1.02] transition-all duration-200"
+                      class="w-full inline-flex items-center justify-center rounded-lg h-10 px-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-200"
                       href="/kali-images/">Kali-Images</a>
                     <div class="sync-status-text"></div>
                   </div>
@@ -428,29 +434,36 @@
               <p class="mt-4 text-lg text-gray-500 max-w-3xl mx-auto">For any inquiries, issues, or suggestions, please
                 feel free to reach out.</p>
               <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 max-w-5xl mx-auto">
-                <div class="rounded-lg border border-gray-200 bg-gray-50 p-8 text-left">
+                <div
+                  class="rounded-2xl border border-gray-200 bg-gray-50 p-8 text-left hover:shadow-lg hover:bg-white transition-all duration-200">
                   <div class="flex items-center gap-4">
-                    <span class="material-icons text-4xl text-[#0c7ff2]">email</span>
+                    <div
+                      class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/30">
+                      <span class="material-icons text-3xl">email</span>
+                    </div>
                     <h3 class="text-2xl font-bold text-gray-900">Email</h3>
                   </div>
                   <p class="mt-4 text-lg text-gray-600">For general inquiries, support, or feedback, you can reach me
                     via email.</p>
-                  <a class="mt-6 inline-block text-lg text-[#0c7ff2] hover:underline"
+                  <a class="mt-6 inline-block text-lg text-blue-600 hover:underline"
                     href="mailto:contact@pangkin.com">contact@pangkin.com</a>
                 </div>
-                <div class="rounded-lg border border-gray-200 bg-gray-50 p-8 text-left">
+                <div
+                  class="rounded-2xl border border-gray-200 bg-gray-50 p-8 text-left hover:shadow-lg hover:bg-white transition-all duration-200">
                   <div class="flex items-center gap-4">
-                    <svg class="h-10 w-10 text-[#0c7ff2]" fill="currentColor" viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                      </path>
-                    </svg>
+                    <div
+                      class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/30">
+                      <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                        </path>
+                      </svg>
+                    </div>
                     <h3 class="text-2xl font-bold text-gray-900">GitHub</h3>
                   </div>
                   <p class="mt-4 text-lg text-gray-600">Check out the project on GitHub for source code, issue tracking,
                     and contributions.</p>
-                  <a class="mt-6 inline-block text-lg text-[#0c7ff2] hover:underline" href="https://github.com/pangkin"
+                  <a class="mt-6 inline-block text-lg text-blue-600 hover:underline" href="https://github.com/pangkin"
                     target="_blank">https://github.com/pangkin</a>
                 </div>
               </div>
@@ -462,13 +475,16 @@
             <div class="text-center">
               <h2 class="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Proud Participant of ROKFOSS
               </h2>
-              <p class="text-lg text-gray-500 max-w-4xl mx-auto">Pangkin Mirror is proud to be a part of the
+              <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">Pangkin Mirror is proud to be a part of
+                the
                 ROKFOSS project,<br class="hidden sm:block" /> contributing to the growth and availability of
                 open-source resources in the region.</p>
               <div class="mt-8">
-                <a class="inline-flex items-center justify-center rounded-md h-12 px-8 bg-blue-500 text-white text-lg font-bold leading-normal tracking-[0.015em] shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-200"
-                  href="https://krfoss.org/" target="_blank" rel="noopener noreferrer">Learn More about
-                  ROKFOSS</a>
+                <a class="inline-flex items-center justify-center gap-2 rounded-xl h-14 px-8 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-lg font-semibold shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:scale-[1.02] transition-all duration-200"
+                  href="https://krfoss.org/" target="_blank" rel="noopener noreferrer">
+                  <span>Learn More about ROKFOSS</span>
+                  <span class="material-icons" style="font-size: 20px;">open_in_new</span>
+                </a>
               </div>
             </div>
           </div>
