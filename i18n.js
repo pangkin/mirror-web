@@ -163,7 +163,7 @@ const repositories = [
   {
     id: 'kali',
     name: 'Kali Linux',
-    logo: 'arch-logo',
+    logo: 'kali-logo',
     description: {
       ko: '보안 작업을 위한 고급 리눅스 배포판.',
       en: 'An advanced Linux distribution for security tasks.',
