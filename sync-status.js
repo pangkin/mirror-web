@@ -47,9 +47,9 @@ async function updateMirrorStatuses() {
       fetch('https://mirror.pangkin.com/asset/status.json')
         .then((r) => r.json())
         .catch(() => ({})),
-      fetch('https://mirror.pangkin.com/dsync-status/api.php')
+      fetch('https://mirror.pangkin.com/syncstatus.json')
         .then((r) => r.json())
-        .catch(() => ({ repositories: {} })),
+        .catch(() => ({})),
       fetch('https://mirror.pangkin.com/diskusage/usage.json')
         .then((r) => r.json())
         .catch(() => ({})),
@@ -114,7 +114,7 @@ async function getMirrorStatusInfo(mirrorName, allStatuses, allSyncStatus) {
   const now = new Date();
   const lagHours = (now - syncTime) / (1000 * 60 * 60);
 
-  const syncStatus = allSyncStatus.repositories[mirrorName];
+  const syncStatus = allSyncStatus[mirrorName];
 
   let state = null;
 
