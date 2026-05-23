@@ -44,13 +44,13 @@ async function updateMirrorStatuses() {
 
   try {
     const [allStatuses, allSyncStatus, allDiskUsages] = await Promise.all([
-      fetch('https://mirror.pangkin.com/asset/status.json')
+      fetch('/asset/status.json')
         .then((r) => r.json())
         .catch(() => ({})),
-      fetch('https://mirror.pangkin.com/syncstatus.json')
+      fetch('/syncstatus.json')
         .then((r) => r.json())
         .catch(() => ({})),
-      fetch('https://mirror.pangkin.com/diskusage/usage.json')
+      fetch('/diskusage/usage.json')
         .then((r) => r.json())
         .catch(() => ({})),
     ]);
