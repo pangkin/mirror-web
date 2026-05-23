@@ -142,8 +142,8 @@ const repositories = [
     name: 'Rocky Linux',
     logo: 'rocky-logo',
     description: {
-      ko: '커뮤니티 지원 기반의 엔터프라이즈급 운영체제.',
-      en: 'A community-supported, production-grade enterprise OS.',
+      ko: 'RHEL과 1:1 바이너리 호환을 목표로 하는 엔터프라이즈 리눅스 배포판.',
+      en: 'An enterprise Linux distribution built for 1:1 binary compatibility with RHEL.',
     },
     mirrors: [
       { name: 'rocky', path: '/rocky/', label: 'Rocky' },
@@ -171,6 +171,43 @@ const repositories = [
     mirrors: [
       { name: 'kali', path: '/kali/', label: 'Kali' },
       { name: 'kali-images', path: '/kali-images/', label: 'Kali-Images' },
+    ],
+  },
+  {
+    id: 'almalinux',
+    name: 'AlmaLinux',
+    logo: 'almalinux-logo',
+    description: {
+      ko: '애플리케이션 호환성과 장기 안정성을 중시하는 RHEL 호환 배포판.',
+      en: 'A RHEL-compatible distribution focused on application compatibility and long-term stability.',
+    },
+    mirrors: [
+      { name: 'almalinux', path: '/almalinux/', label: 'AlmaLinux' },
+    ],
+  },
+  {
+    id: 'cachyos',
+    name: 'CachyOS',
+    logo: 'cachyos-logo',
+    description: {
+      ko: '성능 최적화에 특화된 아치 기반 리눅스 배포판.',
+      en: 'A performance-optimized, Arch-based Linux distribution.',
+    },
+    mirrors: [
+      { name: 'cachyos', path: '/cachyos/', label: 'CachyOS' },
+    ],
+  },
+  {
+    id: 'ubuntu',
+    name: 'Ubuntu',
+    logo: 'ubuntu-logo',
+    description: {
+      ko: '가장 널리 사용되는 데비안 기반 리눅스 배포판.',
+      en: 'The most widely used Debian-based Linux distribution.',
+    },
+    mirrors: [
+      { name: 'ubuntu', path: '/ubuntu/', label: 'Ubuntu' },
+      { name: 'ubuntu-releases', path: '/ubuntu-releases/', label: 'Ubuntu-Releases' },
     ],
   },
 ];
