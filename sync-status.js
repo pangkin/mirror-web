@@ -113,6 +113,7 @@ async function getMirrorStatusInfo(mirrorName, allStatuses, allSyncStatus) {
   }
   
   let state = null;
+  let syncTime = null;
 
   if (syncStatus === 2) {
     state = 'yellow';
