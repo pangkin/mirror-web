@@ -130,7 +130,7 @@ const repositories = [
   {
     id: 'proxmox',
     name: 'Proxmox',
-    logo: 'proxmox-logo',
+    logo: 'proxmox-dark-logo',
     description: {
       ko: '서버 가상화 관리용 오픈소스 플랫폼.',
       en: 'An open-source server virtualization management platform.',
