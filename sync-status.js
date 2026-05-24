@@ -103,17 +103,22 @@ async function updateMirrorStatuses() {
 }
 
 async function getMirrorStatusInfo(mirrorName, allStatuses, allSyncStatus) {
-  const syncStatus = allSyncStatus[mirrorName];
-  if(!syncStatus && syncStatus !== 0) {
+  const mirrorInfo = allStatuses[mirrorName];
+  if (!mirrorInfo) {
     return {
       state: 'gray',
       text: translations[currentLang]['status.unknown'],
       lastSync: null,
     };
   }
-  
+
+  let syncTime = new Date(mirrorInfo.lastSync);
+  const now = new Date();
+  const lagHours = (now - syncTime) / (1000 * 60 * 60);
+
+  const syncStatus = allSyncStatus[mirrorName];
+
   let state = null;
-  let syncTime = null;
 
   if (syncStatus === 2) {
     state = 'yellow';
@@ -121,20 +126,13 @@ async function getMirrorStatusInfo(mirrorName, allStatuses, allSyncStatus) {
   } else if (syncStatus === 0) {
     state = 'red';
     syncTime = null;
+  } else if (lagHours < 8) {
+    state = 'green';
+  } else if (lagHours < 12) {
+    state = 'orange';
   } else {
-    const mirrorInfo = allStatuses[mirrorName];
-    let syncTime = new Date(mirrorInfo.lastSync);
-    const now = new Date();
-    const lagHours = (now - syncTime) / (1000 * 60 * 60);
-
-    if (lagHours < 8) {
-      state = 'green';
-    } else if (lagHours < 12) {
-      state = 'orange';
-    } else {
-      state = 'gray';
-      syncTime = null;
-    }
+    state = 'gray';
+    syncTime = null;
   }
 
   const stateTextMap = {
