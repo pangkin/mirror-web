@@ -142,8 +142,8 @@ const repositories = [
     name: 'Rocky Linux',
     logo: 'rocky-logo',
     description: {
-      ko: 'RHEL과 1:1 바이너리 호환을 목표로 하는 엔터프라이즈 리눅스 배포판.',
-      en: 'An enterprise Linux distribution built for 1:1 binary compatibility with RHEL.',
+      ko: 'RHEL 1:1 바이너리 호환 엔터프라이즈 운영체제.',
+      en: 'A 1:1 binary-compatible RHEL enterprise OS.',
     },
     mirrors: [
       { name: 'rocky', path: '/rocky/', label: 'Rocky' },
@@ -178,8 +178,8 @@ const repositories = [
     name: 'AlmaLinux',
     logo: 'almalinux-logo',
     description: {
-      ko: '애플리케이션 호환성과 장기 안정성을 중시하는 RHEL 호환 배포판.',
-      en: 'A RHEL-compatible distribution focused on application compatibility and long-term stability.',
+      ko: '장기 안정 지원에 초점을 맞춘 RHEL 호환 배포판.',
+      en: 'A stable, long-term RHEL-compatible distribution.',
     },
     mirrors: [
       { name: 'almalinux', path: '/almalinux/', label: 'AlmaLinux' },

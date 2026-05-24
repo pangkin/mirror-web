@@ -2,6 +2,8 @@
 function renderRepositories() {
   const grid = document.getElementById('repositoryGrid');
   grid.innerHTML = repositories
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name))
     .map(
       (repo) => `
     <div class="flex flex-col items-center gap-4 rounded-2xl p-6 border border-gray-200 bg-white text-center hover:shadow-xl hover:scale-[1.02] transition-all duration-200">
