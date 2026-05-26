@@ -109,11 +109,11 @@ const repositories = [
     },
     mirrors: [
       { name: 'debian', path: '/debian/', label: 'Debian' },
-      { name: 'debian-cd', path: '/debian-cd/', label: 'Debian-CD' },
+      { name: 'debian-cd', path: '/debian-cd/', label: 'Debian CD' },
       {
         name: 'debian-security',
         path: '/debian-security/',
-        label: 'Debian-Security',
+        label: 'Debian Security',
       },
     ],
   },
@@ -147,7 +147,7 @@ const repositories = [
     },
     mirrors: [
       { name: 'rocky', path: '/rocky/', label: 'Rocky' },
-      { name: 'rocky-sigs', path: '/rocky-sigs/', label: 'Rocky-SIGs' },
+      { name: 'rocky-sigs', path: '/rocky-sigs/', label: 'Rocky SIGs' },
     ],
   },
   {
@@ -170,7 +170,7 @@ const repositories = [
     },
     mirrors: [
       { name: 'kali', path: '/kali/', label: 'Kali' },
-      { name: 'kali-images', path: '/kali-images/', label: 'Kali-Images' },
+      { name: 'kali-images', path: '/kali-images/', label: 'Kali Images' },
     ],
   },
   {
@@ -207,7 +207,19 @@ const repositories = [
     },
     mirrors: [
       { name: 'ubuntu', path: '/ubuntu/', label: 'Ubuntu' },
-      { name: 'ubuntu-releases', path: '/ubuntu-releases/', label: 'Ubuntu-Releases' },
+      { name: 'ubuntu-releases', path: '/ubuntu-releases/', label: 'Ubuntu Releases' },
+    ],
+  },
+  {
+    id: 'fedora',
+    name: 'Fedora',
+    logo: 'fedora-logo',
+    description: {
+      ko: '가장 널리 사용되는 데비안 기반 리눅스 배포판.',
+      en: 'The most widely used Debian-based Linux distribution.',
+    },
+    mirrors: [
+      { name: 'fedora-epel', path: '/fedora-epel/', label: 'Fedora EPEL' },
     ],
   },
 ];
