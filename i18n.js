@@ -215,8 +215,8 @@ const repositories = [
     name: 'Fedora',
     logo: 'fedora-logo',
     description: {
-      ko: '가장 널리 사용되는 데비안 기반 리눅스 배포판.',
-      en: 'The most widely used Debian-based Linux distribution.',
+      ko: '최신 기술을 빠르게 도입하는 RPM 기반 리눅스 배포판.',
+      en: 'A cutting-edge RPM-based Linux distribution focused on open-source innovation.',
     },
     mirrors: [
       { name: 'fedora-epel', path: '/fedora-epel/', label: 'Fedora EPEL' },
